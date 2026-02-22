@@ -252,4 +252,8 @@ export class GameEngine {
       this.playCard("AI", aiCard);
     }
   }
+
+  restartGame(): void {
+    this.state = this.createInitialState();
+  }
 }

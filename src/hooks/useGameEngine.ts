@@ -34,6 +34,11 @@ export function useGameEngine() {
     continueRound: () => {
       engine.continueRound();
       refresh();
+    },
+
+    restartGame: () => {
+      engine.restartGame();
+      refresh();
     }
   };
 }

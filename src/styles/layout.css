@@ -391,3 +391,14 @@
   transform: rotate(3deg);
 }
 
+.end-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.end-screen h2 {
+  font-size: 28px;
+}

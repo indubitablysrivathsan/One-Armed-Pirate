@@ -1,10 +1,15 @@
-import { useState } from "react";
-import rules from "../../../public/assets/rules.json";
-
-
+import { useState, useEffect } from "react";
 
 export function RulesPanel() {
   const [open, setOpen] = useState(false);
+  const [rules, setRules] = useState<string[]>([]);
+
+  useEffect(() => {
+    fetch("/assets/rules.json")
+      .then((res) => res.json())
+      .then((data) => setRules(data))
+      .catch((err) => console.error("Failed to load rules:", err));
+  }, []);
 
   if (!open) {
     return (
@@ -19,17 +24,16 @@ export function RulesPanel() {
 
   return (
     <>
-      {/* Floating close button */}
-      <button className="rules-close-global"
+      <button
+        className="rules-close-global"
         onClick={() => setOpen(false)}
       >
         ✕
       </button>
 
-
-      {/* Scrollable rules inside panel */}
       <div className="rules-scroll">
         <h4>Game Rules</h4>
+
         {rules.map((line, idx) => (
           <p key={idx}>{line}</p>
         ))}

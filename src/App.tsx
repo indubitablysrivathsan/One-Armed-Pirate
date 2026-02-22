@@ -11,6 +11,7 @@ function App() {
   const {
     state,
     startGame,
+    restartGame,
     playerRaiseBid,
     setTrump,
     playCard,
@@ -116,6 +117,28 @@ function App() {
                   <div className="menu-buttons">
                     <button className="wood-btn" onClick={continueRound}>
                       Continue
+                    </button>
+                  </div>
+                )}
+
+                {state.phase === "END" && (
+                  <div className="end-screen">
+                    <h2>
+                      {state.declarer === "PLAYER"
+                        ? state.playerRounds >= state.playerBid
+                          ? "You Win!"
+                          : "You Lose!"
+                        : state.aiRounds >= state.aiBid
+                        ? "You Lose!"
+                        : "You Win!"}
+                    </h2>
+
+                    <p>
+                      Final Score — You: {state.playerRounds} | AI: {state.aiRounds}
+                    </p>
+
+                    <button className="wood-btn" onClick={restartGame}>
+                      Play Again
                     </button>
                   </div>
                 )}
