@@ -1,0 +1,393 @@
+.background-layer {
+  position: absolute;
+  inset: 0;
+  background: url("../../assets/tavern.webp") center center / cover no-repeat;
+}
+
+.background-layer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(0,0,0,0) 40%,
+    rgba(0,0,0,0.6) 100%
+  );
+}
+
+.bottom-menu {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  pointer-events: none; /* important for layering */
+}
+
+.menu-inner {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.game-root {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: black;
+}
+
+.bottom-ui {
+  position: absolute;
+  bottom: 0;
+  left: 0;        /* ADD THIS */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.bottom-content {
+  position: relative;
+  width: 100%;
+  height: 1000px; /* or whatever height you want */
+  background: url("/assets/ui/menu.webp") center / 100% 100% no-repeat;
+}
+
+/* Content zones */
+.panel-center {
+  position: absolute;
+  top: 600px; /* tweak based on image */
+  height: 200px;
+  pointer-events: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Content zones */
+.panel-left,
+.panel-right {
+  position: absolute;
+  top: 710px; /* tweak based on image */
+  height: 250px;
+  pointer-events: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Adjust these after visually inspecting image */
+.panel-left {
+  margin-left: 0%;
+  margin-right: 77.5%;
+  width: 22.5%;
+}
+
+.panel-center {
+  margin-left: 20%;
+  margin-right: 26.5%;
+  position: relative;
+  overflow: visible;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.panel-right {
+  margin-left: 70.5%;
+  margin-right: 4%;
+  width: 25.5%;
+}
+
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.score-trump {
+  width: 40px;
+  margin: 5px auto;
+}
+
+.left-score {
+  flex: 0 0 100px;   /* fixed header area */
+  display: flex;
+  flex-direction: column; 
+  align-items: center;     
+  justify-content: center;
+  gap: 4px; 
+}
+
+.left-bid {
+  flex: 1;           /* takes remaining space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-trump {
+  flex: 0 0 100px;   /* fixed footer */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Top section */
+.center-text {
+  flex: 0 0 100px;   /* fixed header area */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Middle section (main gameplay zone) */
+.center-cards {
+  flex: 1;           /* takes remaining space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bottom section (buttons area) */
+.center-buttons {
+  flex: 0 0 100px;   /* fixed footer */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Rules container fills parent */
+/* Close button fixed to screen edge */
+.rules-close-global {
+  position: fixed;   /* 🔥 attaches to viewport */
+  top: 720px;        /* align vertically with panel-right */
+  right: 0;          /* flush against screen edge */
+  background: rgba(60, 40, 20, 0.9);
+  color: #d8c28a;
+  border: 2px solid #4b331a;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px 20px;
+  z-index: 999;
+}
+
+/* Scroll area inside right panel */
+.panel-right .rules-scroll {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  padding: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+  background: transparent;
+}
+
+/* Scrollbar styling */
+.panel-right .rules-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.panel-right .rules-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+
+.menu-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.menu-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 5px;
+}
+
+.menu-text {
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+}
+
+.wood-btn {
+  padding: 12px 30px;
+  background: rgba(60, 40, 20, 0.9);
+  color: #d8c28a;
+  border: 2px solid #4b331a;
+  cursor: pointer;
+  font-family: serif;
+  font-size: 18px;
+}
+
+.wood-btn:hover {
+  background: rgba(80, 50, 30, 1);
+}
+
+.suit-icon {
+  width: 60px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.suit-icon:hover {
+  transform: scale(1.1);
+}
+
+.card {
+  position: relative;
+  width: 120px;
+  height: 170px;
+  cursor: pointer;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.6));
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-15px);
+}
+
+.card-large {
+  width: 150px;
+  height: 210px;
+}
+
+.card-base {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Corner container */
+.card-corner {
+  position: absolute;
+  width: 28px;      /* adjust */
+  height: 28px;
+  z-index: 3;
+}
+
+/* Top left position */
+.card-corner.top-left {
+  top: 8px;
+  left: 8px;
+}
+
+/* Bottom right position */
+.card-corner.bottom-right {
+  bottom: 8px;
+  right: 8px;
+}
+
+/* Bottom-right corners — custom per suit */
+.card-corner.bottom-right .corner-suit.anchor {
+  transform: scaleX(-1);;
+}
+
+.card-corner.bottom-right .corner-suit.saber {
+  transform: rotate(180deg); 
+}
+
+.card-corner.bottom-right .corner-suit.rose {
+  transform: scaleX(-1);
+}
+
+.card-corner.bottom-right .corner-suit.cannon {
+  transform: scaleX(-1);
+}
+
+/* Suit image inside corner */
+.corner-suit {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.card-face {
+  position: absolute;
+  right: 0%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.pip-container {
+  position: absolute;
+  inset: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.pip {
+  width: 25px;
+}
+
+.player-hand {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 10px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.trump-hand {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.table-play-area {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* prevent blocking clicks */
+}
+
+.table-card {
+  transition: transform 0.2s ease;
+}
+
+.table-card.lead {
+  transform: rotate(-3deg);
+}
+
+.table-card.response {
+  transform: rotate(3deg);
+}
+

@@ -1,0 +1,16 @@
+[
+  "The game \"One-Armed Pirate\" is a game of chance with 32 cards.",
+  "Each player puts their stake in the pot and is given 5 cards, which the other player cannot see.",
+  "First, each player must call the number of points they think they can win, where each trick won equals one point.",
+  "The player who calls the higher number of points leads the game and decides the trump suit.",
+  "He must now try to win at least that number of points.",
+  "The player who leads plays his first card and the other player must follow by playing a card of the same suit, if he can.",
+  "The player with the highest card wins the point.",
+  "If a player cannot follow suit, he can discard any card or play a trump card.",
+  "The sequence of the cards is I, II, III, IV, Pirate, Bride, Governor, Parrot.",
+  "A trump card beats all other cards.",
+  "The player who has won the point plays the next card.",
+  "You continue like this until someone wins the game.",
+  "If the leader succeeds in winning the number of points he called, he wins the game and takes the pot.",
+  "If he doesn't, his opponent wins."
+]
