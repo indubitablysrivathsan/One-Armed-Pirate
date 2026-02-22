@@ -1,3 +1,5 @@
+import type { Suit } from "../../game/types";
+
 type Props = {
   phase: string;
   aiBid: number;
@@ -5,7 +7,7 @@ type Props = {
   startGame: () => void;
   playerRaiseBid: (raise: boolean) => void;
   continueRound: () => void;
-  setTrump: (suit: string) => void;
+  setTrump: (suit: Suit) => void;
   declarer: string | null;
   currentLeader: string | null;
 };
@@ -14,9 +16,6 @@ export function CenterPanel({
   phase,
   aiBid,
   startGame,
-  playerRaiseBid,
-  continueRound,
-  setTrump,
   declarer,
   currentLeader,
 }: Props) {

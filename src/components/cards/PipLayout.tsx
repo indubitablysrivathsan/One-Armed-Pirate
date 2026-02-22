@@ -1,9 +1,8 @@
 type Props = {
   rank: number;
-  suit: string;
 };
 
-export function PipLayout({ rank, suit }: Props) {
+export function PipLayout({ rank }: Props) {
   const pips = Array.from({ length: rank });
 
   return (

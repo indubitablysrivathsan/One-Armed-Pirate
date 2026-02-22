@@ -1,4 +1,4 @@
-import type { Card as CardType } from "../../types";
+import type { Card as CardType } from "../../game/types";
 import { PipLayout } from "./PipLayout";
 
 type Props = {
@@ -8,9 +8,6 @@ type Props = {
 };
 
 export function Card({ card, onClick, large }: Props) {
-  const isFace =
-    ["pirate", "bride", "governor", "parrot"].includes(card.rank);
-
   return (
     <div
       className={`card ${large ? "card-large" : ""}`}
@@ -35,13 +32,13 @@ export function Card({ card, onClick, large }: Props) {
         />
       </div>
 
-      {isFace ? (
+      {typeof card.rank === "number" ? (
+        <PipLayout rank={card.rank} />
+      ) : (
         <img
           src={`/assets/characters/${card.rank}.png`}
           className="card-face"
         />
-      ) : (
-        <PipLayout rank={card.rank} suit={card.suit} />
       )}
     </div>
   );

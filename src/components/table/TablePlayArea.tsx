@@ -1,4 +1,4 @@
-import type { Card as CardType } from "../../types";
+import type { Card as CardType } from "../../game/types";
 import { Card } from "../cards/Card";
 
 type Props = {

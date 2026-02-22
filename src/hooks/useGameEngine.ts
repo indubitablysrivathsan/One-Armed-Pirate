@@ -4,7 +4,7 @@ import type {Suit, Card, Player} from "../game/types";
 
 export function useGameEngine() {
   const [engine] = useState(() => new GameEngine());
-  const [version, setVersion] = useState(0);
+  const [, setVersion] = useState(0);
 
   const refresh = () => setVersion(v => v + 1);
 
@@ -27,7 +27,7 @@ export function useGameEngine() {
     },
 
     playCard: (player: Player, card: Card) => {
-      engine.playCard(player, card, refresh);
+      engine.playCard(player, card);
       refresh();
     },
 

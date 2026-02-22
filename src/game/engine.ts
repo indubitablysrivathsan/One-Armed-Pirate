@@ -155,7 +155,7 @@ export class GameEngine {
     );
   }
 
-  playCard(player: Player, card: Card, refresh?: () => void): void {
+  playCard(player: Player, card: Card) : void {
     if (this.state.phase !== "ROUND") return
     if (player !== this.state.currentLeader) return
 
